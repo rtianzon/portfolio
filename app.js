@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 app.use('/', require('./routes/home'))
+app.use('/dashboard1', require('./routes/dashboard1/home'))
 
 // app.get('/', async (req,res) => {
 //     console.log('home route')
