@@ -490,9 +490,10 @@
             margin-top: 1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            display: flex;
         }
 
-        #dateH3 span {
+        /* #dateMainSpan {
             font-size:larger;
             background: var(--color-white);
             padding: 0.5rem;
@@ -500,6 +501,22 @@
             cursor: pointer;
             border-radius: 10px;
             box-shadow: var(--box-shadow);
+        } */
+
+        #dateMainSpan {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--color-white);
+            color: var(--color-info-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        #dateMainSpan > span {
+            margin: 0 0.5rem; /* Add spacing between the spans if desired */
         }
 
         /* =============== END OF CALENDAR =============== */
