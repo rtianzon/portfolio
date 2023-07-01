@@ -21,6 +21,11 @@ app.use('/', require('./routes/home'))
 app.use('/dashboard1', require('./routes/dashboard1/home'))
 app.use('/dashboard2', require('./routes/dashboard2/home'))
 app.use('/resizablediv', require('./routes/resizablediv/home'))
+app.use('/login', require('./routes/login/home'))
+app.use('/login2', require('./routes/login2/home'))
+
+// ---------------- Hotel Management ----------------
+// app.use('/hotel', require('./routes/hotel/home'))
 
 // app.get('/', async (req,res) => {
 //     console.log('home route')
