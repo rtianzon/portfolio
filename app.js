@@ -19,6 +19,8 @@ app.use(bodyParser.json())
 
 app.use('/', require('./routes/home'))
 app.use('/dashboard1', require('./routes/dashboard1/home'))
+app.use('/dashboard2', require('./routes/dashboard2/home'))
+app.use('/resizablediv', require('./routes/resizablediv/home'))
 
 // app.get('/', async (req,res) => {
 //     console.log('home route')
