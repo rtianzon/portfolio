@@ -23,6 +23,7 @@ app.use('/dashboard2', require('./routes/dashboard2/home'))
 app.use('/resizablediv', require('./routes/resizablediv/home'))
 app.use('/login', require('./routes/login/home'))
 app.use('/login2', require('./routes/login2/home'))
+app.use('/stickyTable', require('./routes/stickyTable/home'))
 app.use('/scheduling', require('./routes/scheduling/home'))
 
 // ---------------- Hotel Management ----------------

@@ -1,0 +1,64 @@
+<style>
+
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th,
+    td {
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+    
+    th.sticky-column,
+    td.sticky-column {
+      position: sticky;
+      left: 0;
+      background-color: #f5f5f5;
+      z-index: 2;
+    }
+    
+    th.sticky-column:before,
+    td.sticky-column:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -1px;
+      height: 100%;
+      width: 1px;
+      background-color: white; /* Change the border color here */
+      z-index: 1;
+    }
+    
+    th.sticky-column {
+      z-index: 3;
+    }
+    
+    tr:first-child th {
+      border-top: none;
+    }
+    
+    
+    /* Styling the scrollbar */
+    .table-container::-webkit-scrollbar {
+      width: 10px; /* Width of the scrollbar */
+    }
+    
+    .table-container::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Color of the track */
+    }
+    
+    .table-container::-webkit-scrollbar-thumb {
+      background: #888; /* Color of the scrollbar thumb */
+    }
+    
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Color of the scrollbar thumb on hover */
+    }
+    
+    </style>
