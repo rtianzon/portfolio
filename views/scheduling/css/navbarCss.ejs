@@ -1,0 +1,137 @@
+<style>
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--container-color);
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__logo span {
+    color: var(--first-color);
+}
+
+.nav__toggle,
+.nav__close {
+    display: flex;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px){
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: hsla(0, 0%, 10%, .3);
+        width: 75%;
+        height: 100%;
+        padding: 4.5rem 0 0 3rem;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        transition: right .4s;
+    }
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.nav__link {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+}
+
+.nav__link:hover {
+    color: var(--first-color);
+}
+
+.nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* Show menu */
+.show-menu {
+    right: 0;
+}
+
+/* Add blur to header */
+.blur-header {
+    background-color: transparent;
+}
+
+.blur-header::after {
+    content: '';
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    background-color: hsla(0, 0%, 10%, .3);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Active link */
+
+.active-link {
+    color: var(--first-color);
+}
+
+
+@media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 1.5rem);
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .nav__menu {
+                width: initial;
+            }
+
+            .blur-header::after {
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px); /* for safari */
+            }
+        }
+</style>
