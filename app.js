@@ -25,6 +25,7 @@ app.use('/login', require('./routes/login/home'))
 app.use('/login2', require('./routes/login2/home'))
 app.use('/stickyTable', require('./routes/stickyTable/home'))
 app.use('/scheduling', require('./routes/scheduling/home'))
+app.use('/scheduling2', require('./routes/scheduling2/home'))
 
 // ---------------- Hotel Management ----------------
 // app.use('/hotel', require('./routes/hotel/home'))
