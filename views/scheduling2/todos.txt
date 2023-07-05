@@ -1,2 +1,3 @@
 - table with sticky column1 and row 1 - done
-- get date function
+- get date calendar - done
+- generate table for the current month

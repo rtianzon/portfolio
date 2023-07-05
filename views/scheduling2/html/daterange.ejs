@@ -1,0 +1,435 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+  <style>
+    /* Custom CSS for styling the calendar */
+    .calendar-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .calendar {
+      font-family: Arial, sans-serif;
+      width: 400px;
+      padding: 10px;
+      background-color: #fff;
+      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+      margin-bottom: 20px;
+    }
+
+    #calendar-from,
+    #calendar-to {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 1rem;
+      border: 1px solid blue;
+      border-radius: 10px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .calendar-prev,
+    .calendar-next {
+      cursor: pointer;
+      font-size: 18px;
+      color: #5b9dd9;
+    }
+
+    .calendar-month-year {
+      font-weight: bold;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .calendar-day {
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .calendar-day:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+  <script>
+    // Function to generate a single calendar
+    function generateCalendar(title, year, month, containerId) {
+      var calendarDiv = document.createElement("div");
+      calendarDiv.className = "calendar";
+
+      // Calendar title
+      var titleDiv = document.createElement("div");
+      titleDiv.className = "calendar-title";
+      titleDiv.innerHTML = title;
+      calendarDiv.appendChild(titleDiv);
+
+      // Calendar header
+      var headerDiv = document.createElement("div");
+      headerDiv.className = "calendar-header";
+      var prevButton = document.createElement("span");
+      prevButton.className = "calendar-prev";
+      prevButton.innerHTML = "&#10094;";
+      prevButton.addEventListener("click", function () {
+        generateCalendar(title, year, month - 1, containerId);
+      });
+      var nextButton = document.createElement("span");
+      nextButton.className = "calendar-next";
+      nextButton.innerHTML = "&#10095;";
+      nextButton.addEventListener("click", function () {
+        generateCalendar(title, year, month + 1, containerId);
+      });
+      var monthYearSpan = document.createElement("span");
+      monthYearSpan.className = "calendar-month-year";
+      monthYearSpan.innerHTML = getMonthName(month) + " " + year;
+      headerDiv.appendChild(prevButton);
+      headerDiv.appendChild(monthYearSpan);
+      headerDiv.appendChild(nextButton);
+      calendarDiv.appendChild(headerDiv);
+
+      // Calendar days
+      var daysDiv = document.createElement("div");
+      daysDiv.className = "calendar-days";
+      var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      for (var i = 0; i < weekdays.length; i++) {
+        var dayDiv = document.createElement("div");
+        dayDiv.className = "calendar-day";
+        dayDiv.innerHTML = weekdays[i];
+        daysDiv.appendChild(dayDiv);
+      }
+      calendarDiv.appendChild(daysDiv);
+
+      // Calculate the first day of the month
+      var firstDay = new Date(year, month, 1).getDay();
+
+      // Calculate the number of days in the month
+      var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Fill in the calendar days
+      var dayCounter = 1;
+      for (var j = 0; j < 42; j++) {
+        var dayDiv = document.createElement("div");
+        dayDiv.className = "calendar-day";
+
+        if (j >= firstDay && dayCounter <= daysInMonth) {
+          // Display the days from the current month
+          dayDiv.innerHTML = dayCounter;
+          dayCounter++;
+        }
+
+        daysDiv.appendChild(dayDiv);
+      }
+
+      var container = document.getElementById(containerId);
+      container.innerHTML = "";
+      container.appendChild(calendarDiv);
+    }
+
+    // Function to get the name of the month
+    function getMonthName(month) {
+      var monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      return monthNames[month];
+    }
+  </script>
+</head>
+<body>
+  <div class="calendar-wrapper">
+    <div id="calendar-from" class="calendar"></div>
+    <div id="calendar-to" class="calendar"></div>
+  </div>
+
+  <script>
+    // Generate the "From" calendar for the current month
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+    generateCalendar("From", currentYear, currentMonth, "calendar-from");
+
+    // Generate the "To" calendar for the current month
+    generateCalendar("To", currentYear, currentMonth, "calendar-to");
+  </script>
+</body>
+</html> -->
+
+
+<!-- ----------------------------------------------- -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+  <style>
+    /* Custom CSS for styling the calendar */
+    .calendar-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .calendar {
+      font-family: Arial, sans-serif;
+      width: 400px;
+      padding: 10px;
+      background-color: #fff;
+      margin-bottom: 20px;
+    }
+
+    #calendar-from,
+    #calendar-to {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 1rem;
+      border: 1px solid blue;
+      border-radius: 10px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .calendar-prev,
+    .calendar-next {
+      cursor: pointer;
+      font-size: 18px;
+      color: #5b9dd9;
+    }
+
+    .calendar-month-year {
+      font-weight: bold;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .calendar-day {
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .calendar-day:hover {
+      background-color: #f5f5f5;
+    }
+
+    .calendar-day.selected-day {
+      background-color: #5b9dd9;
+      color: #fff;
+    }
+
+    .calendar-day.range-day {
+      background-color: #c7e2f7;
+    }
+  </style>
+  <script>
+    // Function to generate a single calendar
+function generateCalendar(title, year, month, containerId) {
+  var calendarDiv = document.createElement("div");
+  calendarDiv.className = "calendar";
+
+  // Calendar title
+  var titleDiv = document.createElement("div");
+  titleDiv.className = "calendar-title";
+  titleDiv.innerHTML = title;
+  calendarDiv.appendChild(titleDiv);
+
+  // Calendar header
+  var headerDiv = document.createElement("div");
+  headerDiv.className = "calendar-header";
+  var prevButton = document.createElement("span");
+  prevButton.className = "calendar-prev";
+  prevButton.innerHTML = "&#10094;";
+  prevButton.addEventListener("click", function () {
+    generateCalendar(title, year, month - 1, containerId);
+  });
+  var nextButton = document.createElement("span");
+  nextButton.className = "calendar-next";
+  nextButton.innerHTML = "&#10095;";
+  nextButton.addEventListener("click", function () {
+    generateCalendar(title, year, month + 1, containerId);
+  });
+  var monthYearSpan = document.createElement("span");
+  monthYearSpan.className = "calendar-month-year";
+  monthYearSpan.innerHTML = getMonthName(month) + " " + year;
+  headerDiv.appendChild(prevButton);
+  headerDiv.appendChild(monthYearSpan);
+  headerDiv.appendChild(nextButton);
+  calendarDiv.appendChild(headerDiv);
+
+  // Calendar days
+  var daysDiv = document.createElement("div");
+  daysDiv.className = "calendar-days";
+  var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  for (var i = 0; i < weekdays.length; i++) {
+    var dayDiv = document.createElement("div");
+    dayDiv.className = "calendar-day";
+    dayDiv.innerHTML = weekdays[i];
+    daysDiv.appendChild(dayDiv);
+  }
+  calendarDiv.appendChild(daysDiv);
+
+  // Calculate the first day of the month
+  var firstDay = new Date(year, month, 1).getDay();
+
+  // Calculate the number of days in the month
+  var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Fill in the calendar days
+  var dayCounter = 1;
+  for (var j = 0; j < 42; j++) {
+    var dayDiv = document.createElement("div");
+    dayDiv.className = "calendar-day";
+
+    if (j >= firstDay && dayCounter <= daysInMonth) {
+      // Display the days from the current month
+      dayDiv.innerHTML = dayCounter;
+      dayCounter++;
+
+      // Highlight the "From" date
+      if (title === "From" && dayCounter === 2) {
+        dayDiv.classList.add("selected-day");
+      }
+
+      // Highlight the range between "From" and "To" dates
+      if (title === "To" && dayCounter > 2) {
+        dayDiv.classList.add("range-day");
+      }
+    }
+
+    daysDiv.appendChild(dayDiv);
+  }
+
+  var container = document.getElementById(containerId);
+  container.innerHTML = "";
+  container.appendChild(calendarDiv);
+
+  // Add click event listener to each day
+  var days = daysDiv.getElementsByClassName("calendar-day");
+  var fromSelected = false;
+  var toSelected = false;
+  var fromIndex = -1;
+  var toIndex = -1;
+
+  for (var k = 0; k < days.length; k++) {
+    days[k].addEventListener("click", function () {
+      var selectedDay = this.innerHTML;
+      var selectedIndex = Array.from(days).indexOf(this);
+
+      // Clear previous selection
+      for (var l = 0; l < days.length; l++) {
+        days[l].classList.remove("selected-day");
+        days[l].classList.remove("range-day");
+      }
+
+      if (!fromSelected) {
+        // Select "From" date
+        fromSelected = true;
+        fromIndex = selectedIndex;
+        this.classList.add("selected-day");
+        days[fromIndex + 1].classList.add("range-day"); // Highlight the day after "From" as the start of the range
+      } else if (!toSelected) {
+        // Select "To" date
+        toSelected = true;
+        toIndex = selectedIndex;
+        this.classList.add("selected-day");
+
+        // Highlight the range between "From" and "To" dates
+        var startIndex = Math.min(fromIndex, toIndex);
+        var endIndex = Math.max(fromIndex, toIndex);
+        for (var x = startIndex + 1; x < endIndex; x++) {
+          days[x].classList.add("range-day");
+        }
+      } else {
+        // Reset selection
+        fromSelected = false;
+        toSelected = false;
+        fromIndex = -1;
+        toIndex = -1;
+      }
+    });
+  }
+}
+
+// Function to get the name of the month
+function getMonthName(month) {
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return monthNames[month];
+}
+
+// Generate the "From" calendar for the current month
+var currentDate = new Date();
+var currentYear = currentDate.getFullYear();
+var currentMonth = currentDate.getMonth();
+generateCalendar("From", currentYear, currentMonth, "calendar-from");
+
+// Generate the "To" calendar for the current month
+generateCalendar("To", currentYear, currentMonth, "calendar-to");
+
+  </script>
+</head>
+<body>
+  <div class="calendar-wrapper">
+    <div id="calendar-from" class="calendar"></div>
+    <div id="calendar-to" class="calendar"></div>
+  </div>
+
+  <script>
+    // Generate the "From" calendar for the current month
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+    generateCalendar("From", currentYear, currentMonth, "calendar-from");
+
+    // Generate the "To" calendar for the current month
+    generateCalendar("To", currentYear, currentMonth, "calendar-to");
+
+  </script>
+</body>
+</html>
+
+
