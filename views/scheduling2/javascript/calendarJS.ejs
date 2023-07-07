@@ -118,6 +118,7 @@
 
     if (localStorage.getItem('currentDate')) {
         // Retrieve the stored date
+        console.log(localStorage)
         let storedDate = localStorage.getItem('currentDate');
         dateSpan.innerHTML = storedDate;
     } else {

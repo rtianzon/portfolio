@@ -1,0 +1,57 @@
+<script>
+    const sideMenu = document.querySelector("aside")
+    const menuBtn = document.querySelector("#menu-btn")
+    const closeBtn = document.querySelector("#close-btn")
+    const themeToggler = document.querySelector(".theme-toggler")
+
+    // show sidebar
+    menuBtn.addEventListener('click', () => {
+        sideMenu.style.display = 'block'
+    })
+
+    // close sidebar
+    closeBtn.addEventListener('click', () => {
+        sideMenu.style.display = 'none'
+    })
+
+    // change theme
+    themeToggler.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme-variables')
+        themeToggler.querySelector('span:nth-child(1)').classList.toggle('active')
+        themeToggler.querySelector('span:nth-child(2)').classList.toggle('active')
+    })
+
+    // -----------------------ADD TRANSACTION START---------------------------------
+
+
+    let addTransactionBtn = document.getElementById("addTransactionBtn")
+    let addTransactionOptionId = document.getElementById("addTransactionOptionId")
+    addTransactionBtn.addEventListener("click", (event) => {
+        event.stopPropagation()
+        addTransactionOptionId.classList.remove('hideForm')
+        addTransactionOptionId.classList.add('showForm')
+    })
+
+    document.addEventListener('click', (event) => {
+        if (!addTransactionOptionId.contains(event.target)) {
+            addTransactionOptionId.classList.remove('showForm')
+            addTransactionOptionId.classList.add('hideForm')
+        }
+    })
+
+    // show amount paid input when partially paid
+
+    let paidOptionSelect = document.getElementById("paidOptionSelect")
+    let paidAmountInput = document.getElementById("paidAmountInput")
+    paidOptionSelect.addEventListener("change", (event) => {
+        event.stopPropagation()
+        if(paidOptionSelect.value == "partiallyPaid"){
+            paidAmountInput.classList.remove('hideAmountPaid')
+            paidAmountInput.classList.add('showAmountPaid')
+        }
+        if(paidOptionSelect.value == "fullyPaid"){
+            paidAmountInput.classList.remove('showAmountPaid')
+            paidAmountInput.classList.add('hideAmountPaid')
+        }
+    })
+</script>
