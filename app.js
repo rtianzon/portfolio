@@ -17,6 +17,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
+
+app.use('/superAdmin', require('./routes/superAdmin/home'))
 app.use('/', require('./routes/home'))
 app.use('/dashboard1', require('./routes/dashboard1/home'))
 app.use('/dashboard2', require('./routes/dashboard2/home'))

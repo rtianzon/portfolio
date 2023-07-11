@@ -974,6 +974,11 @@
 
         /* -----------------EMPLOYEE OPTIONS-------------------------- */
 
+        .employeeOption {
+            display: grid;
+            grid-template-columns: 30% 30% 20% 20%;
+        }
+
         .employeeOption button {
             background: var(--color-primary);
             padding: 10px;
@@ -986,9 +991,21 @@
             font-weight: bolder;
             box-shadow: var(--box-shadow);
             cursor: pointer;
+            gap: 0.5rem;
         }
 
-        .addTransactionOption form {
+        #addExpenseBtn {
+            background: var(--color-danger);
+            margin-left: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        .addExpenseOption {
+            margin-left: 15rem;
+        }
+
+        .addTransactionOption form,
+        .addExpenseOption form {
             display: flex;
             flex-direction: column;
             height: max-content;
@@ -1002,6 +1019,7 @@
             z-index: 1;
             box-shadow: var(--box-shadow);
             margin-top: 0.5rem;
+            font-size: 0.87rem;
         }
 
         .showForm {
@@ -1013,7 +1031,10 @@
         }
 
         .addTransactionOption form input,
-        .addTransactionOption form select {
+        .addTransactionOption form select,
+        .addExpenseOption form input,
+        .addExpenseOption form select,
+        .addExpenseOption form textarea {
             margin-top: 0.5rem;
             padding: var(--padding-1);
             border-radius: var(--border-radius-2);
@@ -1021,7 +1042,8 @@
             box-shadow: var(--box-shadow);
         }
 
-        .addTransactionOption form button {
+        .addTransactionOption form button,
+        .addExpenseOption form button {
             margin-top: 1rem;
             padding: var(--padding-1);
             background: var(--color-success);

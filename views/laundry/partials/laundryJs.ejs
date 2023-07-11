@@ -24,23 +24,86 @@
     // -----------------------ADD TRANSACTION START---------------------------------
 
 
-    let addTransactionBtn = document.getElementById("addTransactionBtn")
-    let addTransactionOptionId = document.getElementById("addTransactionOptionId")
+    // let addTransactionBtn = document.getElementById("addTransactionBtn")
+    // let addTransactionOptionId = document.getElementById("addTransactionOptionId")
+    // addTransactionBtn.addEventListener("click", (event) => {
+    //     event.stopPropagation()
+    //     addTransactionOptionId.classList.remove('hideForm')
+    //     addTransactionOptionId.classList.add('showForm')
+    // })
+
+    // document.addEventListener('click', (event) => {
+    //     if (!addTransactionOptionId.contains(event.target)) {
+    //         addTransactionOptionId.classList.remove('showForm')
+    //         addTransactionOptionId.classList.add('hideForm')
+    //     }
+    // })
+
+    // // show amount paid input when partially paid
+
+    // let paidOptionSelect = document.getElementById("paidOptionSelect")
+    // let paidAmountInput = document.getElementById("paidAmountInput")
+    // paidOptionSelect.addEventListener("change", (event) => {
+    //     event.stopPropagation()
+    //     if(paidOptionSelect.value == "partiallyPaid"){
+    //         paidAmountInput.classList.remove('hideAmountPaid')
+    //         paidAmountInput.classList.add('showAmountPaid')
+    //     }
+    //     if(paidOptionSelect.value == "fullyPaid"){
+    //         paidAmountInput.classList.remove('showAmountPaid')
+    //         paidAmountInput.classList.add('hideAmountPaid')
+    //     }
+    // })
+
+    // // -----------------------ADD EXPENSE START---------------------------------
+
+    // let addExpenseBtn = document.getElementById('addExpenseBtn')
+    // let addExpenseOptionId = document.getElementById('addExpenseOptionId')
+    // addExpenseBtn.addEventListener("click", (event) => {
+    //     event.stopPropagation()
+    //     addExpenseOptionId.classList.remove('hideForm')
+    //     addExpenseOptionId.classList.add('showForm')
+    // })
+
+    // document.addEventListener('click', (event) => {
+    //     if (!addExpenseOptionId.contains(event.target)) {
+    //         addExpenseOptionId.classList.remove('showForm')
+    //         addExpenseOptionId.classList.add('hideForm')
+    //     }
+    // })
+
+    let addTransactionBtn = document.getElementById("addTransactionBtn");
+    let addTransactionOptionId = document.getElementById("addTransactionOptionId");
+    let addExpenseBtn = document.getElementById('addExpenseBtn');
+    let addExpenseOptionId = document.getElementById('addExpenseOptionId');
+
     addTransactionBtn.addEventListener("click", (event) => {
-        event.stopPropagation()
-        addTransactionOptionId.classList.remove('hideForm')
-        addTransactionOptionId.classList.add('showForm')
-    })
+        event.stopPropagation();
+        addTransactionOptionId.classList.remove('hideForm');
+        addTransactionOptionId.classList.add('showForm');
+        addExpenseOptionId.classList.remove('showForm');
+        addExpenseOptionId.classList.add('hideForm');
+    });
+
+    addExpenseBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        addExpenseOptionId.classList.remove('hideForm');
+        addExpenseOptionId.classList.add('showForm');
+        addTransactionOptionId.classList.remove('showForm');
+        addTransactionOptionId.classList.add('hideForm');
+    });
 
     document.addEventListener('click', (event) => {
         if (!addTransactionOptionId.contains(event.target)) {
-            addTransactionOptionId.classList.remove('showForm')
-            addTransactionOptionId.classList.add('hideForm')
+            addTransactionOptionId.classList.remove('showForm');
+            addTransactionOptionId.classList.add('hideForm');
         }
-    })
-
-    // show amount paid input when partially paid
-
+        
+        if (!addExpenseOptionId.contains(event.target)) {
+            addExpenseOptionId.classList.remove('showForm');
+            addExpenseOptionId.classList.add('hideForm');
+        }
+    });
     let paidOptionSelect = document.getElementById("paidOptionSelect")
     let paidAmountInput = document.getElementById("paidAmountInput")
     paidOptionSelect.addEventListener("change", (event) => {
@@ -54,4 +117,5 @@
             paidAmountInput.classList.add('hideAmountPaid')
         }
     })
+
 </script>
