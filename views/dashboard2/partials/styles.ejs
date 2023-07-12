@@ -234,4 +234,293 @@ body {
     object-fit: cover;
 }
 
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: var(--card-border-radius);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--color-primary);
+}
+
+.cardBox .card .cardName {
+    color: var(--color-dark-variant);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: 3.5em;
+    color: var(--color-dark-variant);
+}
+
+.cardBox .card:hover {
+    background: var(--color-primary);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--color-white);
+}
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--color-white);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-2);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--color-primary);
+    text-decoration: none;
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td {
+    font-weight: 600;
+
+}
+
+.details .recentOrders table tr {
+    color: var(--color-dark-variant);
+    border-bottom: 1px solid var(--color-info-dark);
+}
+
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.details .recentOrders table tr td {
+    padding: var(--padding-1);
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.status.delivered {
+    padding: var(--padding-1);
+    background: var(--color-success);
+    color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.pending {
+    padding: var(--padding-1);
+    background: var(--color-warning);
+    color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.return {
+    padding: var(--padding-1);
+    background: var(--color-danger);
+    color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.inprogress {
+    padding: var(--padding-1);
+    background: var(--color-primary-variant);
+    color: var(--color-white);
+    border-radius: var(--border-radius-3);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.recentCustomers {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: var(--padding-1);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius-2);
+    background: var(--color-white);
+}
+
+.recentCustomers table tr td:first-child{
+    width: 60px;
+}
+
+.recentCustomers .imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.recentCustomers .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recentCustomers table tr:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.recentCustomers table tr td {
+    padding: 12px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--color-info-dark);
+}
+
+.recentCustomers table tr:hover td h4 span {
+    color: var(--color-white);
+}
+
+/* MAKE RESPONSIVE */
+
+@media (max-width: 991px) {
+    .navigation {
+        left: -300px;
+    }
+    
+    .navigation.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .details {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .recentOrders {
+        overflow-x: auto;
+    }
+
+    .status.inprogress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    .user {
+        min-width: 40px;
+    }
+
+    /* .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    } */
+
+    /* .navigation.active {
+        width: 100%;
+        left: 0;
+    } */
+}
+
 </style>
